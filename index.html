@@ -413,49 +413,51 @@
             <h2 class="text-4xl font-black mb-12 text-center text-white trippy-text">VISUAL HALLUCINATIONS</h2>
             
             <!-- Video Grid Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-fr gap-6">
+            <!-- items-start: Fontos, hogy a dobozok ne nyúljanak meg függőlegesen -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
                 
-                <!-- VID 0: Kiemelt, Nagyobb Keret (2x2) -->
-                <div class="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden border-2 border-neon-green shadow-toxic bg-black">
-                    <!-- Dekoratív overlay ami eltűnik hoverre -->
+                <!-- VID 0: Kiemelt (széles, 2 oszlopos), de a magasságot a videó adja -->
+                <div class="md:col-span-2 relative group rounded-2xl overflow-hidden border-2 border-neon-green shadow-toxic bg-black">
+                    <!-- Dekoratív overlay -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-neon-green/20 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity z-10"></div>
                     <div class="absolute top-4 right-4 z-20 bg-neon-green text-black text-xs font-black px-3 py-1 rounded uppercase tracking-widest animate-pulse">Featured</div>
-                    <video src="vid0.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                    <!-- w-full h-auto: A videó mérete határozza meg a keretet -->
+                    <video src="vid0.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 1 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid1.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50">
+                    <video src="vid1.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 2 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid2.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50">
+                    <video src="vid2.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 3 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid3.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50">
+                    <video src="vid3.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 4 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid4.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50">
+                    <video src="vid4.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 5 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid5.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50">
+                    <video src="vid5.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 6 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid6.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50">
+                    <video src="vid6.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
                 <!-- VID 7 -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
-                    <video src="vid7.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50">
+                    <video src="vid7.mp4" controls class="w-full h-auto block" preload="metadata"></video>
                 </div>
 
             </div>
