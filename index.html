@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLYING KETAMINE HORSE | $FKH | ETERNAL TRIP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'modern': ['Montserrat', 'sans-serif'],
+                        'brand': ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        'club-bg': '#050014',      /* Sötétebb, mélyebb alap */
+                        'club-card': '#1a052e',    /* Vibrálóbb lila alap */
+                        'club-primary': '#a855f7',
+                        'club-accent': '#ff00ff',
+                        'neon-green': '#39ff14',   /* Acid Green */
+                        'neon-cyan': '#00ffff',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(139, 92, 246, 0.5)',
+                        'glow-strong': '0 0 40px rgba(255, 0, 255, 0.6), 0 0 80px rgba(0, 255, 255, 0.3)',
+                        'toxic': '0 0 15px #39ff14',
+                    },
+                    animation: {
+                        'hue-cycle': 'hueRotate 5s linear infinite',
+                        'pulse-fast': 'pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        hueRotate: {
+                            '0%': { filter: 'hue-rotate(0deg)' },
+                            '100%': { filter: 'hue-rotate(360deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050014;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            /* Trippy background pattern */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(0,0,0,0) 40%, rgba(255,0,255,0.05) 50%, rgba(0,0,0,0) 60%);
+            background-size: 100% 100%, 200% 200%;
+            animation: bgShift 10s ease infinite;
+        }
+
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- LOADER STYLES --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease-out;
+        }
+        
+        .loader-bar-container {
+            width: 300px;
+            height: 20px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+        
+        .loader-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #39ff14);
+            background-size: 200% 100%;
+            animation: gradientMove 1s linear infinite;
+            transition: width 0.1s linear;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 100% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050014; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #ff00ff, #00ffff); border-radius: 4px; }
+
+        /* Animation classes */
+        .float-slow { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .trippy-text {
+            animation: textVibrate 3s infinite;
+        }
+        @keyframes textVibrate {
+            0%, 100% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
+            50% { text-shadow: -2px 2px 0px #39ff14, 2px -2px 0px #ff00ff; }
+        }
+
+        /* Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(5px);
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        /* Pill Button Vibrant */
+        .btn-pill {
+            background: linear-gradient(90deg, #d946ef, #00f0ff);
+            border-radius: 9999px;
+            padding: 12px 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 20px rgba(217, 70, 239, 0.5);
+            color: black;
+        }
+        .btn-pill:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.8);
+            background: linear-gradient(90deg, #39ff14, #00f0ff);
+        }
+
+        /* DexScreener Embed */
+        #dexscreener-embed{position:relative;width:100%;padding-bottom:125%;}
+        @media(min-width:1400px){#dexscreener-embed{padding-bottom:65%;}}
+        #dexscreener-embed iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:0;}
+    </style>
+</head>
+<body class="selection:bg-neon-green selection:text-black">
+
+    <!-- LOADER OVERLAY -->
+    <div id="loader">
+        <div class="relative w-32 h-32 mb-8 animate-spin-slow">
+            <div class="absolute inset-0 rounded-full border-4 border-t-transparent border-l-transparent border-fuchsia-500 animate-spin"></div>
+            <div class="absolute inset-2 rounded-full border-4 border-b-transparent border-r-transparent border-cyan-400 animate-spin" style="animation-direction: reverse; animation-duration: 2s;"></div>
+            <img src="https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small" class="absolute inset-4 w-[calc(100%-32px)] h-[calc(100%-32px)] rounded-full object-cover animate-pulse">
+        </div>
+        
+        <h2 class="font-brand text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-green-400 animate-pulse tracking-widest text-center px-4">
+            LOADING KETAMINE DOSAGE...
+        </h2>
+        
+        <div class="loader-bar-container">
+            <div class="loader-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="mt-2 font-mono text-neon-green text-sm" id="loading-percent">0%</div>
+    </div>
+
+    <!-- Ambient Light Background -->
+    <div class="fixed inset-0 z-[-1]">
+        <!-- Nagy fényfoltok -->
+        <div class="absolute top-[-20%] left-[-20%] w-[60vw] h-[60vw] rounded-full bg-fuchsia-600/20 blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-[-20%] right-[-20%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/20 blur-[120px] animate-pulse" style="animation-delay: 1s;"></div>
+        <canvas id="bg-canvas" class="opacity-70"></canvas>
+    </div>
+
+    <!-- NAV -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-black/60 backdrop-blur-xl border-b border-white/10">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-fuchsia-500 p-[2px] group-hover:rotate-180 transition-transform duration-700">
+                    <img src="https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="font-brand text-lg md:text-xl tracking-wider text-white group-hover:text-neon-cyan transition-colors">Flying <span class="text-fuchsia-500 group-hover:text-neon-green">Ketamine Horse</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex gap-8 items-center">
+                <a href="#about" class="text-sm font-bold text-gray-300 hover:text-neon-cyan hover:shadow-toxic uppercase tracking-wide transition-all">About</a>
+                <a href="#game" class="text-sm font-bold text-gray-300 hover:text-neon-green hover:shadow-toxic uppercase tracking-wide transition-all">Game</a>
+                <a href="#memes" class="text-sm font-bold text-gray-300 hover:text-fuchsia-500 hover:shadow-toxic uppercase tracking-wide transition-all">Memes</a>
+                <a href="#chart" class="text-sm font-bold text-gray-300 hover:text-neon-cyan hover:shadow-toxic uppercase tracking-wide transition-all">Chart</a>
+                <!-- X Link -->
+                <a href="https://x.com/flyingkethorse" target="_blank" class="text-sm font-bold text-gray-300 hover:text-white uppercase tracking-wide transition-colors">X / Twitter</a>
+            </nav>
+
+            <!-- Pill Button -->
+            <a href="https://dexscreener.com/solana/BCXpjsHYmgVpRKdv4EQv1RARhYagnnwPkJjYbvM6bonk" target="_blank" class="hidden md:block border-2 border-fuchsia-500 rounded-full px-8 py-2 text-sm font-bold hover:bg-fuchsia-500 hover:text-black hover:shadow-glow-strong transition-all uppercase tracking-widest text-fuchsia-400">
+                BUY $FKH
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+            
+            <!-- Text Content -->
+            <div class="text-left reveal-on-scroll">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-[4px] bg-neon-green animate-pulse"></div>
+                    <span class="text-neon-green font-bold tracking-[0.3em] text-sm uppercase font-brand animate-pulse">Dimension X: Active</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-black leading-none mb-6 trippy-text">
+                    FLYING<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-fuchsia-500 to-neon-green animate-hue-cycle">KETAMINE</span><br>
+                    HORSE
+                </h1>
+                
+                <p class="text-lg text-gray-300 mb-8 max-w-lg leading-relaxed font-modern border-l-4 border-fuchsia-500 pl-4 bg-white/5 p-4 rounded-r-xl backdrop-blur-sm">
+                    This helps them to choose their single for an album but also where to promote themselves as an artist. Or just fly high.
+                    <br><span class="text-neon-cyan text-sm mt-2 block font-mono">>> STATUS: PERMANENTLY HIGH 💊</span>
+                </p>
+
+                <!-- Contract Address -->
+                <div class="mb-10 p-4 bg-black/40 border border-fuchsia-500/30 rounded-xl backdrop-blur-md max-w-md group cursor-pointer hover:border-neon-green hover:shadow-glow-strong transition-all relative overflow-hidden" onclick="copyAddress()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                    <div class="text-xs text-fuchsia-400 uppercase font-bold mb-1">Contract Address</div>
+                    <div class="flex justify-between items-center">
+                        <code class="font-mono text-neon-cyan truncate mr-4 text-lg" id="contract">BCXpjsHYmgVpRKdv4EQv1RARhYagnnwPkJjYbvM6bonk</code>
+                        <span class="text-white text-xl animate-bounce">📋</span>
+                    </div>
+                    <div id="copy-msg" class="text-xs text-neon-green font-bold mt-1 opacity-0 transition-opacity absolute bottom-1 right-4">DATA COPIED!</div>
+                </div>
+
+                <a href="#game" class="btn-pill inline-block shadow-glow-strong animate-pulse">
+                    ENTER THE VOID
+                </a>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="relative h-[500px] flex items-center justify-center reveal-on-scroll delay-100">
+                <!-- Trippy Glows behind image -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-neon-cyan/40 to-fuchsia-600/40 rounded-full blur-[80px] animate-pulse"></div>
+                
+                <!-- Rotating Rings -->
+                <div class="absolute w-[110%] h-[110%] border border-neon-green/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                <div class="absolute w-[130%] h-[130%] border border-fuchsia-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+
+                <!-- The Image -->
+                <img src="https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small" 
+                     class="relative z-10 w-full max-w-md rounded-2xl shadow-2xl float-slow border-2 border-white/20 hover:hue-rotate-90 transition-all duration-1000 cursor-crosshair"
+                     style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-club-card/80 skew-y-3 transform scale-110 z-0"></div>
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            
+            <!-- Image Side -->
+            <div class="relative reveal-on-scroll group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-neon-green via-cyan-400 to-fuchsia-600 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-hue-cycle"></div>
+                <div class="relative bg-black border border-white/10 rounded-2xl p-8 h-full min-h-[400px] flex flex-col justify-center items-center text-center overflow-hidden">
+                    <h3 class="font-brand text-2xl mb-6 text-white tracking-widest border-b-2 border-fuchsia-500 pb-2">HALLUCINATIONS</h3>
+                    <ul class="space-y-6 text-left w-full max-w-xs text-gray-300 font-mono text-lg">
+                        <li class="flex items-center gap-4">
+                            <span class="w-4 h-4 rounded-sm bg-neon-green shadow-toxic animate-spin"></span> Hearing colors
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-4 h-4 rounded-sm bg-fuchsia-500 shadow-glow animate-pulse"></span> Tasting volatility
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-4 h-4 rounded-sm bg-neon-cyan shadow-glow animate-bounce"></span> Hooves of diamonds
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Text Side -->
+            <div class="reveal-on-scroll">
+                <div class="text-neon-cyan font-bold uppercase tracking-widest text-sm mb-2 font-mono">/// SYSTEM OVERRIDE ///</div>
+                <h2 class="text-5xl font-black mb-6 trippy-text">WHAT IS $FKH?</h2>
+                <div class="text-gray-300 space-y-6 leading-relaxed font-medium">
+                    <p>
+                        Once upon a time, in a dimension where logic doesn't exist and physics took a sick day, a horse discovered ketamine. Not just any horse - <strong class="text-neon-green">THE HORSE</strong>.
+                    </p>
+                    <p class="text-lg text-white border-l-4 border-neon-cyan pl-4">
+                        Legend says this horse transcended reality itself. We say: <strong class="text-fuchsia-400">WHO CARES, IT'S A VIBE! ✨</strong>
+                    </p>
+                    <p>
+                        $FKH isn't just a token - it's a <strong class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-neon-cyan font-black">STATE OF MIND</strong>. For the degens who laugh at volatility.
+                    </p>
+                    <button class="px-8 py-3 rounded-full border-2 border-neon-green text-neon-green font-bold hover:bg-neon-green hover:text-black hover:shadow-toxic transition-all uppercase tracking-wider text-sm mt-4 font-brand">
+                        More Data +
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEPS / FEATURES -->
+    <section class="py-24 relative overflow-hidden bg-black/30">
+        <div class="container mx-auto px-6">
+            <div class="text-fuchsia-500 font-bold uppercase tracking-widest text-xs mb-2 text-center">Protocol</div>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-white text-center trippy-text">CHAOS LEVELS</h2>
+
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-12 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-center group reveal-on-scroll bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-neon-cyan/50">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-neon-cyan group-hover:text-black group-hover:bg-neon-cyan group-hover:shadow-glow transition-all">
+                        <span class="font-black text-2xl">1</span>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-1 text-white group-hover:text-neon-cyan transition-colors">Get a Wallet</h4>
+                        <p class="text-gray-400 text-sm">Download Phantom or Solflare. Fund with SOL.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-center group reveal-on-scroll delay-100 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-fuchsia-500/50">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-fuchsia-500 group-hover:text-black group-hover:bg-fuchsia-500 group-hover:shadow-glow transition-all">
+                        <span class="font-black text-2xl">2</span>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-1 text-white group-hover:text-fuchsia-500 transition-colors">Connect to DEX</h4>
+                        <p class="text-gray-400 text-sm">Head to Raydium.io or Jupiter. Connect wallet.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-center group reveal-on-scroll delay-200 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-neon-green/50">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-neon-green group-hover:text-black group-hover:bg-neon-green group-hover:shadow-toxic transition-all">
+                        <span class="font-black text-2xl">3</span>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-1 text-white group-hover:text-neon-green transition-colors">Swap for $FKH</h4>
+                        <p class="text-gray-400 text-sm">Paste contract address. Confirm transaction.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6 items-center group reveal-on-scroll delay-300 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-white/50">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-white group-hover:text-black group-hover:bg-white group-hover:shadow-glow transition-all">
+                        <span class="font-black text-2xl">4</span>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-1 text-white group-hover:text-white transition-colors">Dimension X</h4>
+                        <p class="text-gray-400 text-sm">Hold tight and enjoy the ride.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#chart" class="btn-pill inline-block shadow-glow-strong text-black font-black">View Chart Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME SECTION -->
+    <section id="game" class="py-24 bg-club-card/50 relative border-y border-neon-cyan/20">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 animate-pulse"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-5xl font-black mb-2 text-white trippy-text">FLAPPY K-HORSE</h2>
+            <p class="text-neon-cyan mb-10 font-mono uppercase tracking-widest">// Avoid reality barriers //</p>
+            
+            <div class="relative w-full max-w-2xl mx-auto h-[500px] rounded-2xl overflow-hidden shadow-2xl border-2 border-fuchsia-500/50 group hover:border-neon-green transition-colors duration-500">
+                <div class="absolute -inset-1 bg-gradient-to-r from-neon-cyan to-fuchsia-600 opacity-20 group-hover:opacity-60 blur transition-opacity duration-500"></div>
+                
+                <canvas id="flappyCanvas" width="600" height="500" class="relative z-10 w-full h-full bg-black cursor-pointer select-none"></canvas>
+                
+                <!-- Start Overlay -->
+                <div id="gameOverlay" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm">
+                    <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-cyan mb-4 animate-pulse">READY TO TRIP?</h3>
+                    <div id="highScoreDisplay" class="text-fuchsia-400 font-mono mb-8 text-xl">High Score: 0</div>
+                    <button onclick="startGame()" class="btn-pill shadow-glow-strong text-black font-black text-xl hover:scale-110 transition-transform">
+                        START GAME
+                    </button>
+                    <p class="text-gray-500 text-xs mt-6 uppercase tracking-widest font-mono">Press Space or Click</p>
+                </div>
+                
+                <!-- Score -->
+                <div class="absolute top-6 left-6 z-10 font-mono text-xl font-bold text-white bg-black/70 px-4 py-2 rounded-lg border border-neon-green/50 shadow-toxic">
+                    <span id="scoreVal" class="text-neon-green">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMES GRID -->
+    <section id="memes" class="py-24 px-6 relative">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center text-white trippy-text">VISUAL HALLUCINATIONS</h2>
+            
+            <!-- Video Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-fr gap-6">
+                
+                <!-- VID 0: Kiemelt, Nagyobb Keret (2x2) -->
+                <div class="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden border-2 border-neon-green shadow-toxic bg-black">
+                    <!-- Dekoratív overlay ami eltűnik hoverre -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-neon-green/20 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity z-10"></div>
+                    <div class="absolute top-4 right-4 z-20 bg-neon-green text-black text-xs font-black px-3 py-1 rounded uppercase tracking-widest animate-pulse">Featured</div>
+                    <video src="vid0.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 1 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid1.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 2 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid2.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 3 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid3.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 4 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid4.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 5 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid5.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 6 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid6.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+                <!-- VID 7 -->
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 min-h-[200px]">
+                    <video src="vid7.mp4" controls class="w-full h-full object-contain" preload="metadata"></video>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="py-24 bg-club-card border-t border-fuchsia-900/50">
+        <div class="container mx-auto max-w-6xl px-6">
+            <h2 class="text-4xl font-black mb-8 text-center text-white trippy-text">LIVE DATA STREAM</h2>
+            <div class="rounded-2xl overflow-hidden border-2 border-fuchsia-500/30 shadow-[0_0_50px_rgba(217,70,239,0.2)]">
+                <div id="dexscreener-embed">
+                    <iframe src="https://dexscreener.com/solana/8Lq7gz2aEzkMQNfLpYmjv3V8JbD26LRbFd11SnRicCE6?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-white/10 relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col items-center justify-center gap-4 mb-8">
+                 <span class="font-brand text-3xl tracking-widest text-white animate-pulse">Flying <span class="text-neon-cyan">Ketamine Horse</span></span>
+                 
+                 <!-- Social Links -->
+                 <div class="flex gap-8 mt-4">
+                    <a href="https://x.com/flyingkethorse" target="_blank" class="text-gray-400 hover:text-white hover:shadow-glow transition-all font-bold tracking-widest uppercase text-lg transform hover:scale-110">
+                        X (Twitter)
+                    </a>
+                    <a href="https://dexscreener.com/solana/BCXpjsHYmgVpRKdv4EQv1RARhYagnnwPkJjYbvM6bonk" target="_blank" class="text-gray-400 hover:text-neon-green hover:shadow-toxic transition-all font-bold tracking-widest uppercase text-lg transform hover:scale-110">
+                        DexScreener
+                    </a>
+                 </div>
+            </div>
+            
+            <p class="text-xs text-gray-600 max-w-lg mx-auto leading-relaxed font-mono">
+                (Disclaimer: This horse may or may not be an actual horse. Side effects include uncontrollable laughter, spontaneous meme creation, and an inexplicable urge to tell everyone about your bags. Not financial advice. Actually, not advice at all. We don't even know what we're doing. 💎🙌)
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- LOADER LOGIC ---
+        window.addEventListener('load', () => {
+            const bar = document.getElementById('progress-bar');
+            const percent = document.getElementById('loading-percent');
+            const loader = document.getElementById('loader');
+            
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Fade out loader
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => { loader.style.display = 'none'; }, 1000);
+                    }, 500);
+                } else {
+                    width += Math.random() * 5; // Random increment
+                    if(width > 100) width = 100;
+                    bar.style.width = width + '%';
+                    percent.innerText = Math.floor(width) + '%';
+                }
+            }, 100);
+        });
+
+        // --- COPY ADDRESS ---
+        function copyAddress() {
+            const address = document.getElementById('contract').innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const msg = document.getElementById('copy-msg');
+                msg.style.opacity = '1';
+                setTimeout(() => { msg.style.opacity = '0'; }, 2000);
+            });
+        }
+
+        // --- SCROLL REVEAL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // --- BACKGROUND ANIMATION (MORE TRIPPY) ---
+        const canvas = document.getElementById("bg-canvas");
+        const ctx = canvas.getContext("2d");
+        let width, height, particles = [];
+        
+        const horseImg = new Image();
+        horseImg.crossOrigin = "Anonymous";
+        horseImg.src = "https://pbs.twimg.com/media/G6osaKSXwAAWoIT?format=jpg&name=small";
+
+        const neonColors = ['#ff00ff', '#00ffff', '#39ff14', '#ffff00'];
+
+        class Hallucination {
+            constructor() { this.init(); }
+            init() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 80 + 30; // Bigger
+                this.speedX = (Math.random() - 0.5) * 3; // Faster
+                this.speedY = (Math.random() - 0.5) * 3;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.05;
+                this.color = neonColors[Math.floor(Math.random() * neonColors.length)];
+                this.colorIndex = 0;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+                
+                // Color cycling
+                if(Math.random() > 0.95) {
+                    this.color = neonColors[Math.floor(Math.random() * neonColors.length)];
+                }
+
+                if (this.x > width + 50) this.x = -50;
+                if (this.x < -50) this.x = width + 50;
+                if (this.y > height + 50) this.y = -50;
+                if (this.y < -50) this.y = height + 50;
+            }
+            draw() {
+                if (!horseImg.complete) return;
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                // Color overlay effect
+                ctx.shadowBlur = 30;
+                ctx.shadowColor = this.color;
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+                ctx.clip();
+                ctx.drawImage(horseImg, -this.size / 2, -this.size / 2, this.size, this.size);
+                
+                // Stronger tint
+                ctx.globalCompositeOperation = "color";
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = 0.6;
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+
+        function initBackground() {
+            resize();
+            particles = [];
+            for(let i = 0; i < 20; i++) particles.push(new Hallucination()); // More particles
+            animate();
+        }
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => { resize(); initBackground(); });
+        
+        // --- GAME LOGIC (Unchanged) ---
+        const gameCanvas = document.getElementById('flappyCanvas');
+        const gameCtx = gameCanvas.getContext('2d');
+        const overlay = document.getElementById('gameOverlay');
+        const scoreEl = document.getElementById('scoreVal');
+        const highScoreEl = document.getElementById('highScoreDisplay');
+        
+        let highScore = localStorage.getItem('fkh_highscore') || 0;
+        highScoreEl.innerText = `High Score: ${highScore}`;
+
+        let gameRunning = false;
+        let frames = 0;
+        let score = 0;
+        let speed = 4.0;
+        let trail = [];
+
+        const player = {
+            x: 50, y: 200, width: 40, height: 40, dy: 0, gravity: 0.25, jumpForce: -4.2, rotation: 0, sprite: null
+        };
+
+        const rawPlayerImg = new Image();
+        rawPlayerImg.crossOrigin = "Anonymous";
+        rawPlayerImg.src = "https://pbs.twimg.com/media/G6ovRigWEAAt9ry?format=jpg&name=small";
+        rawPlayerImg.onload = function() {
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCanvas.width = 100; tempCanvas.height = 100;
+            tempCtx.drawImage(rawPlayerImg, 0, 0, 100, 100);
+            const data = tempCtx.getImageData(0,0,100,100).data;
+            for(let i=0; i<data.length; i+=4){
+                if(data[i]>200 && data[i+1]>200 && data[i+2]>200) data[i+3]=0;
+            }
+            tempCtx.putImageData(new ImageData(data, 100, 100), 0, 0);
+            player.sprite = new Image();
+            player.sprite.src = tempCanvas.toDataURL();
+        }
+
+        let pipes = [];
+        const pipeGap = 160;
+        const pipeWidth = 60;
+
+        function startGame() {
+            if(gameRunning) return;
+            resetGame();
+            gameRunning = true;
+            overlay.style.display = 'none';
+            gameLoop();
+        }
+
+        function resetGame() {
+            player.y = 200; player.dy = 0; player.rotation = 0;
+            pipes = []; trail = []; score = 0; frames = 0; speed = 4.0;
+            scoreEl.innerText = score;
+        }
+
+        function jump() {
+            if(!gameRunning) return;
+            player.dy = player.jumpForce;
+        }
+
+        window.addEventListener('keydown', (e) => { if(e.code==='Space') { e.preventDefault(); if(gameRunning) jump(); else if(overlay.style.display!=='none') startGame(); } });
+        gameCanvas.addEventListener('mousedown', (e) => { e.preventDefault(); if(gameRunning) jump(); else startGame(); });
+
+        function gameLoop() {
+            if(!gameRunning) return;
+            player.dy += player.gravity; player.y += player.dy;
+            if(player.dy < 0) player.rotation = -20 * Math.PI/180;
+            else { player.rotation += 2 * Math.PI/180; if(player.rotation > 90*Math.PI/180) player.rotation = 90*Math.PI/180; }
+            if(frames%3===0) trail.push({x: player.x, y: player.y + player.height/2, alpha: 1});
+            for(let i=trail.length-1; i>=0; i--){ trail[i].x -= speed; trail[i].alpha -= 0.05; if(trail[i].alpha <= 0) trail.splice(i,1); }
+            if(frames % 120 === 0) {
+                const minH = 50; const maxH = gameCanvas.height - pipeGap - minH;
+                const h = Math.floor(Math.random()*(maxH-minH+1)+minH);
+                pipes.push({x: gameCanvas.width, y: 0, width: pipeWidth, height: h, passed: false});
+            }
+            for(let i=0; i<pipes.length; i++){
+                let p = pipes[i]; p.x -= speed;
+                if(player.x+5 < p.x+p.width && player.x+player.width-5 > p.x && (player.y+5 < p.height || player.y+player.height-5 > p.height+pipeGap)) gameOver();
+                if(p.x+p.width < player.x && !p.passed) { score++; scoreEl.innerText = score; p.passed = true; if(score%5===0) speed += 0.3; }
+            }
+            if(pipes.length>0 && pipes[0].x < -pipeWidth) pipes.shift();
+            if(player.y+player.height > gameCanvas.height || player.y < 0) gameOver();
+            drawGame(); frames++; requestAnimationFrame(gameLoop);
+        }
+
+        function drawGame() {
+            gameCtx.fillStyle = '#050014'; gameCtx.fillRect(0,0,gameCanvas.width, gameCanvas.height);
+            gameCtx.fillStyle = '#D946EF';
+            trail.forEach(t => { gameCtx.globalAlpha = t.alpha; gameCtx.beginPath(); gameCtx.arc(t.x, t.y, 4, 0, Math.PI*2); gameCtx.fill(); });
+            gameCtx.globalAlpha = 1;
+            pipes.forEach(p => {
+                let grad = gameCtx.createLinearGradient(p.x, 0, p.x+p.width, 0); grad.addColorStop(0, '#39ff14'); grad.addColorStop(1, '#00ffff');
+                gameCtx.fillStyle = grad; gameCtx.fillRect(p.x, p.y, p.width, p.height);
+                let bottomY = p.height + pipeGap; gameCtx.fillRect(p.x, bottomY, p.width, gameCanvas.height - bottomY);
+            });
+            gameCtx.save(); gameCtx.translate(player.x+player.width/2, player.y+player.height/2); gameCtx.rotate(player.rotation);
+            if(player.sprite) gameCtx.drawImage(player.sprite, -player.width/2, -player.height/2, player.width, player.height);
+            else { gameCtx.fillStyle='#fff'; gameCtx.fillRect(-20,-20,40,40); }
+            gameCtx.restore();
+        }
+
+        function gameOver() {
+            gameRunning = false; if(score > highScore) { highScore = score; localStorage.setItem('fkh_highscore', highScore); }
+            overlay.style.display = 'flex';
+            overlay.innerHTML = `<h3 class="text-3xl font-black text-neon-green mb-2 animate-pulse">BAD TRIP! 💀</h3><p class="text-white mb-6">Score: ${score}</p><button onclick="startGame()" class="btn-pill shadow-glow-strong text-black font-black">TRY AGAIN</button>`;
+        }
+    </script>
+</body>
+</html>
