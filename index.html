@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLYING KETAMINE HORSE | $FKH | ETERNAL TRIP</title>
-    <link rel="icon" type="image/png" href="ket.png">
+    <link rel="icon" type="image/png" href="https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@700&family=Bangers&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -17,13 +17,14 @@
                     fontFamily: {
                         'modern': ['Montserrat', 'sans-serif'],
                         'brand': ['Orbitron', 'sans-serif'],
+                        'comic': ['Bangers', 'cursive'],
                     },
                     colors: {
-                        'club-bg': '#050014',      /* Sötétebb, mélyebb alap */
-                        'club-card': '#1a052e',    /* Vibrálóbb lila alap */
+                        'club-bg': '#050014',       /* Sötétebb, mélyebb alap */
+                        'club-card': '#1a052e',     /* Vibrálóbb lila alap */
                         'club-primary': '#a855f7',
                         'club-accent': '#ff00ff',
-                        'neon-green': '#39ff14',   /* Acid Green */
+                        'neon-green': '#39ff14',    /* Acid Green */
                         'neon-cyan': '#00ffff',
                     },
                     boxShadow: {
@@ -51,14 +52,13 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #050014; /* Alapszín beállítása a HTML-re is */
+            background-color: #050014;
         }
 
         body {
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            /* Trippy background pattern */
             background-image: 
                 radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
                 linear-gradient(45deg, rgba(0,0,0,0) 40%, rgba(255,0,255,0.05) 50%, rgba(0,0,0,0) 60%);
@@ -76,17 +76,15 @@
         /* --- EXTREME STONED MODE STYLES --- */
         body.hallucination-mode {
             animation: extremeTrip 4s infinite alternate ease-in-out;
-            cursor: wait; /* Just for fun */
+            cursor: wait;
         }
 
-        /* Torzítjuk az összes fő elemet */
         body.hallucination-mode section, 
         body.hallucination-mode img,
         body.hallucination-mode .btn-pill {
             animation: meltReality 3s infinite ease-in-out alternate;
         }
 
-        /* Széteső szövegek */
         body.hallucination-mode h1, 
         body.hallucination-mode h2,
         body.hallucination-mode h3 {
@@ -94,13 +92,11 @@
             text-shadow: 3px 0px 0px #ff00ff, -3px 0px 0px #00ffff;
         }
         
-        /* A háttér canvas is megbolondul */
         body.hallucination-mode canvas {
             filter: contrast(200%) brightness(150%) hue-rotate(90deg) blur(1px);
             transform: scale(1.1);
         }
 
-        /* Fő trippy animáció a body-ra */
         @keyframes extremeTrip {
             0% { filter: hue-rotate(0deg) saturate(1.5) contrast(1.2) invert(0); }
             25% { filter: hue-rotate(90deg) saturate(3) contrast(1.5) blur(1px) invert(0); }
@@ -109,7 +105,6 @@
             100% { filter: hue-rotate(360deg) saturate(1.5) contrast(1.2) invert(0); }
         }
 
-        /* Tértorzulás animáció */
         @keyframes meltReality {
             0% { transform: scale(1) skew(0deg) rotate(0deg); border-radius: 0; }
             25% { transform: scale(1.02) skew(2deg) rotate(1deg); border-radius: 20px; }
@@ -118,7 +113,6 @@
             100% { transform: scale(1) skew(0deg) rotate(0deg); }
         }
 
-        /* Szöveg remegés */
         @keyframes shakeText {
             0% { transform: translate(1px, 1px) rotate(0deg); }
             100% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -140,12 +134,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            /* Extra margin to separate from Nav */
             margin-left: 20px; 
-            white-space: nowrap; /* Prevent breaking */
+            white-space: nowrap;
         }
 
-        /* --- LOADER STYLES --- */
+        /* --- LOADER --- */
         #loader {
             position: fixed;
             inset: 0;
@@ -183,12 +176,10 @@
             100% { background-position: 0 0; }
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050014; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #ff00ff, #00ffff); border-radius: 4px; }
 
-        /* Animation classes */
         .float-slow { animation: float 6s ease-in-out infinite; }
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -203,7 +194,6 @@
             50% { text-shadow: -2px 2px 0px #39ff14, 2px -2px 0px #ff00ff; }
         }
 
-        /* Reveal Animation */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px) scale(0.95);
@@ -216,7 +206,6 @@
             filter: blur(0);
         }
 
-        /* Pill Button Vibrant */
         .btn-pill {
             background: linear-gradient(90deg, #d946ef, #00f0ff);
             border-radius: 9999px;
@@ -228,6 +217,8 @@
             box-shadow: 0 0 20px rgba(217, 70, 239, 0.5);
             color: black;
             white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
         }
         .btn-pill:hover {
             transform: translateY(-2px) scale(1.05);
@@ -235,10 +226,104 @@
             background: linear-gradient(90deg, #39ff14, #00f0ff);
         }
 
-        /* DexScreener Embed */
         #dexscreener-embed{position:relative;width:100%;padding-bottom:125%;}
         @media(min-width:1400px){#dexscreener-embed{padding-bottom:65%;}}
         #dexscreener-embed iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:0;}
+
+        /* --- 3D COMIC BOOK STYLES --- */
+        .comic-scene {
+            perspective: 1500px;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media(min-width: 768px) {
+            .comic-scene { height: 600px; }
+        }
+
+        .comic-book {
+            position: relative;
+            width: 90%;
+            max-width: 450px;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .comic-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            border: 2px solid #000;
+            border-radius: 5px;
+            background-color: #111;
+        }
+
+        .comic-page.flipped {
+            transform: rotateY(-180deg);
+        }
+
+        .comic-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #fff;
+        }
+
+        .comic-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            background: #222;
+            background-image: repeating-linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a), repeating-linear-gradient(45deg, #1a1a1a 25%, #111 25%, #111 75%, #1a1a1a 75%, #1a1a1a);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #333;
+        }
+
+        /* JAVÍTOTT KÉP STÍLUS: Nincs levágás, a tetejére igazítva */
+        .story-img-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* FONTOS: Ez biztosítja, hogy a felső rész (a fej) mindig látszódjon */
+            object-position: top center; 
+            transition: all 0.5s;
+        }
+        
+        .tbc-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            height: 100%;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body class="selection:bg-neon-green selection:text-black">
@@ -264,16 +349,14 @@
 
     <!-- Ambient Light Background -->
     <div class="fixed inset-0 z-[-1]">
-        <!-- Nagy fényfoltok -->
         <div class="absolute top-[-20%] left-[-20%] w-[60vw] h-[60vw] rounded-full bg-fuchsia-600/20 blur-[120px] animate-pulse"></div>
         <div class="absolute bottom-[-20%] right-[-20%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/20 blur-[120px] animate-pulse" style="animation-delay: 1s;"></div>
         <canvas id="bg-canvas" class="opacity-70"></canvas>
     </div>
 
-    <!-- NAV -->
-    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-black/60 backdrop-blur-xl border-b border-white/10">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center gap-4">
-            <!-- Logo -->
+    <!-- NAV - JAVÍTVA: Balra tolva paddinggal, BUY gomb eltávolítva -->
+    <header class="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-black/60 backdrop-blur-xl border-b border-white/10">
+        <div class="container mx-auto pl-4 pr-12 h-20 flex justify-between items-center gap-4">
             <div class="flex items-center gap-3 group cursor-pointer flex-shrink-0">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-fuchsia-500 p-[2px] group-hover:rotate-180 transition-transform duration-700">
                     <img src="https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small" class="w-full h-full rounded-full object-cover">
@@ -282,17 +365,20 @@
                 <span class="font-brand text-lg tracking-wider text-white sm:hidden">FKH</span>
             </div>
 
-            <!-- Desktop Menu -->
             <nav class="hidden lg:flex gap-8 items-center flex-shrink">
                 <a href="#about" class="text-sm font-bold text-gray-300 hover:text-neon-cyan hover:shadow-toxic uppercase tracking-wide transition-all">About</a>
                 <a href="#game" class="text-sm font-bold text-gray-300 hover:text-neon-green hover:shadow-toxic uppercase tracking-wide transition-all">Game</a>
+                <a href="#comic" class="text-sm font-bold text-gray-300 hover:text-yellow-400 hover:shadow-toxic uppercase tracking-wide transition-all">Story</a>
                 <a href="#memes" class="text-sm font-bold text-gray-300 hover:text-fuchsia-500 hover:shadow-toxic uppercase tracking-wide transition-all">Memes</a>
                 <a href="#chart" class="text-sm font-bold text-gray-300 hover:text-neon-cyan hover:shadow-toxic uppercase tracking-wide transition-all">Chart</a>
                 <a href="https://x.com/flyingkethorse" target="_blank" class="text-sm font-bold text-gray-300 hover:text-white uppercase tracking-wide transition-colors">X</a>
+                <!-- TIKTOK HEADER LINK (UPDATED) -->
+                <a href="https://www.tiktok.com/@flyingketaminehorse" target="_blank" class="text-sm font-bold text-gray-300 hover:text-white uppercase tracking-wide transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.03 5.84-.02 8.75-.08 1.46-.54 2.94-1.34 4.2-1.23 1.94-3.41 3.08-5.69 3.01-1.55-.02-3.09-.56-4.38-1.52-1.58-1.17-2.52-3.03-2.52-4.98 0-1.78.8-3.5 2.18-4.72 1.22-1.07 2.87-1.66 4.51-1.54V15.2c-.87-.06-1.76.22-2.45.79-.58.48-.94 1.19-.94 1.96 0 1 .6 1.9 1.54 2.22.92.31 2.01.12 2.77-.6.6-.57.94-1.38.94-2.22.01-4.61.01-9.22 0-13.83-.87-.02-1.74-.02-2.62-.02-.85.02-1.7.02-2.55.02z"/></svg>
+                </a>
             </nav>
 
             <div class="flex items-center gap-4 md:gap-6 flex-shrink-0">
-                <!-- TRIP SWITCH -->
                 <div class="trip-switch-container hidden md:flex" title="WARNING: MAY CAUSE HALLUCINATIONS">
                     <span class="text-xs font-bold text-fuchsia-500 uppercase tracking-wider">STONED MODE</span>
                     <div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
@@ -300,11 +386,6 @@
                         <label for="hallucinationToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                     </div>
                 </div>
-
-                <!-- Pill Button -->
-                <a href="https://dexscreener.com/solana/BCXpjsHYmgVpRKdv4EQv1RARhYagnnwPkJjYbvM6bonk" target="_blank" class="hidden md:block border-2 border-fuchsia-500 rounded-full px-6 py-2 text-xs md:text-sm font-bold hover:bg-fuchsia-500 hover:text-black hover:shadow-glow-strong transition-all uppercase tracking-widest text-fuchsia-400 whitespace-nowrap">
-                    BUY $FKH
-                </a>
             </div>
         </div>
     </header>
@@ -312,8 +393,6 @@
     <!-- HERO SECTION -->
     <section class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
         <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-            
-            <!-- Text Content -->
             <div class="text-left reveal-on-scroll">
                 <div class="flex items-center gap-2 mb-4">
                     <div class="w-8 h-[4px] bg-neon-green animate-pulse"></div>
@@ -331,7 +410,6 @@
                     <br><span class="text-neon-cyan text-sm mt-2 block font-mono">>> STATUS: PERMANENTLY HIGH 💊</span>
                 </p>
 
-                <!-- Contract Address -->
                 <div class="mb-10 p-4 bg-black/40 border border-fuchsia-500/30 rounded-xl backdrop-blur-md max-w-md group cursor-pointer hover:border-neon-green hover:shadow-glow-strong transition-all relative overflow-hidden" onclick="copyAddress()">
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                     <div class="text-xs text-fuchsia-400 uppercase font-bold mb-1">Contract Address</div>
@@ -347,7 +425,6 @@
                 </a>
             </div>
 
-            <!-- Hero Image -->
             <div class="relative h-[500px] flex items-center justify-center reveal-on-scroll delay-100">
                 <div class="absolute inset-0 bg-gradient-to-tr from-neon-cyan/40 to-fuchsia-600/40 rounded-full blur-[80px] animate-pulse"></div>
                 <div class="absolute w-[110%] h-[110%] border border-neon-green/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
@@ -363,8 +440,6 @@
     <section id="about" class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-club-card/80 skew-y-3 transform scale-110 z-0"></div>
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
-            
-            <!-- Image Side -->
             <div class="relative reveal-on-scroll group">
                 <div class="absolute -inset-2 bg-gradient-to-r from-neon-green via-cyan-400 to-fuchsia-600 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-hue-cycle"></div>
                 <div class="relative bg-black border border-white/10 rounded-2xl p-8 h-full min-h-[400px] flex flex-col justify-center items-center text-center overflow-hidden">
@@ -383,13 +458,12 @@
                 </div>
             </div>
 
-            <!-- Text Side -->
             <div class="reveal-on-scroll">
                 <div class="text-neon-cyan font-bold uppercase tracking-widest text-sm mb-2 font-mono">/// SYSTEM OVERRIDE ///</div>
                 <h2 class="text-5xl font-black mb-6 trippy-text">WHAT IS $FKH?</h2>
                 <div class="text-gray-300 space-y-6 leading-relaxed font-medium">
                     <p>
-                        Once upon a time, in a dimension where logic doesn't exist and physics took a sick day, a horse discovered ketamine. Not just any horse - <strong class="text-neon-green">THE HORSE</strong>.
+                        Once upon a time, in a dimension where logic doesn't exist and physics took a sick day, a horse discovered ketamine. Not just any horse - <strong class="text-neon-green">K-HORSE</strong>.
                     </p>
                     <p class="text-lg text-white border-l-4 border-neon-cyan pl-4">
                         Legend says this horse transcended reality itself. We say: <strong class="text-fuchsia-400">WHO CARES, IT'S A VIBE! ✨</strong>
@@ -397,12 +471,8 @@
                     <p>
                         $FKH isn't just a token - it's a <strong class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-neon-cyan font-black">STATE OF MIND</strong>. For the degens who laugh at volatility.
                     </p>
-                    <button class="px-8 py-3 rounded-full border-2 border-neon-green text-neon-green font-bold hover:bg-neon-green hover:text-black hover:shadow-toxic transition-all uppercase tracking-wider text-sm mt-4 font-brand">
-                        More Data +
-                    </button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -413,7 +483,6 @@
             <h2 class="text-4xl md:text-5xl font-black mb-16 text-white text-center trippy-text">CHAOS LEVELS</h2>
 
             <div class="grid md:grid-cols-2 gap-x-12 gap-y-12 max-w-5xl mx-auto">
-                <!-- Step 1 -->
                 <div class="flex gap-6 items-center group reveal-on-scroll bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-neon-cyan/50">
                     <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-neon-cyan group-hover:text-black group-hover:bg-neon-cyan group-hover:shadow-glow transition-all">
                         <span class="font-black text-2xl">1</span>
@@ -424,7 +493,6 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="flex gap-6 items-center group reveal-on-scroll delay-100 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-fuchsia-500/50">
                     <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-fuchsia-500 group-hover:text-black group-hover:bg-fuchsia-500 group-hover:shadow-glow transition-all">
                         <span class="font-black text-2xl">2</span>
@@ -435,7 +503,6 @@
                     </div>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="flex gap-6 items-center group reveal-on-scroll delay-200 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-neon-green/50">
                     <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-neon-green group-hover:text-black group-hover:bg-neon-green group-hover:shadow-toxic transition-all">
                         <span class="font-black text-2xl">3</span>
@@ -446,7 +513,6 @@
                     </div>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="flex gap-6 items-center group reveal-on-scroll delay-300 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-white/50">
                     <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-white group-hover:text-black group-hover:bg-white group-hover:shadow-glow transition-all">
                         <span class="font-black text-2xl">4</span>
@@ -476,7 +542,6 @@
                 
                 <canvas id="flappyCanvas" width="600" height="500" class="relative z-10 w-full h-full bg-black cursor-pointer select-none"></canvas>
                 
-                <!-- Start Overlay -->
                 <div id="gameOverlay" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm">
                     <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-cyan mb-4 animate-pulse">READY TO TRIP?</h3>
                     <div id="highScoreDisplay" class="text-fuchsia-400 font-mono mb-8 text-xl">High Score: 0</div>
@@ -486,11 +551,124 @@
                     <p class="text-gray-500 text-xs mt-6 uppercase tracking-widest font-mono">Press Space or Click</p>
                 </div>
                 
-                <!-- Score -->
                 <div class="absolute top-6 left-6 z-10 font-mono text-xl font-bold text-white bg-black/70 px-4 py-2 rounded-lg border border-neon-green/50 shadow-toxic">
                     <span id="scoreVal" class="text-neon-green">0</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- COMIC SECTION (REVAMPED 3D - 9 PAGES - NO TEXT OVERLAYS) -->
+    <section id="comic" class="py-24 relative overflow-hidden bg-black">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-center text-white trippy-text">THE ORIGIN STORY</h2>
+            <p class="text-gray-400 mb-12 font-mono text-sm tracking-widest uppercase">Tap Next to Flip the Page</p>
+
+            <!-- 3D Book Container -->
+            <div class="comic-scene">
+                <div class="comic-book" id="comicBook">
+                    
+                    <!-- PAGE 9: TO BE CONTINUED (BOTTOM OF STACK) -->
+                    <div class="comic-page z-[0]" id="p9">
+                        <div class="comic-content">
+                            <div class="tbc-page">
+                                <h3 class="text-5xl font-black text-neon-green trippy-text tracking-widest text-center animate-pulse">TO BE CONTINUED...</h3>
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 8: IMAGE 8 -->
+                    <div class="comic-page z-[1]" id="p8">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CsF3XcAA55us?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 7: IMAGE 7 -->
+                    <div class="comic-page z-[2]" id="p7">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CsF2WIAA86at?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 6: IMAGE 6 -->
+                    <div class="comic-page z-[3]" id="p6">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CsHoWcAA6VJh?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 5: IMAGE 5 -->
+                    <div class="comic-page z-[4]" id="p5">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CsF2X0AAoq22?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 4: IMAGE 4 -->
+                    <div class="comic-page z-[5]" id="p4">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CoHFXgAE6cp7?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 3: IMAGE 3 -->
+                    <div class="comic-page z-[6]" id="p3">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CoI4X0AIZe-3?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 2: IMAGE 2 -->
+                    <div class="comic-page z-[7]" id="p2">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CoG9XwAABBK_?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                    <!-- PAGE 1: IMAGE 1 (TOP) -->
+                    <div class="comic-page z-[8]" id="p1">
+                        <div class="comic-content">
+                            <div class="story-img-container">
+                                <img src="https://pbs.twimg.com/media/G63CoG7WwAATKgl?format=jpg&name=medium" class="story-img">
+                            </div>
+                        </div>
+                        <div class="comic-back"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="flex gap-8 mt-10">
+                <button onclick="prevPage()" class="btn-pill border-2 border-white bg-transparent hover:bg-white hover:text-black">PREV PAGE</button>
+                <button onclick="nextPage()" class="btn-pill shadow-toxic">NEXT PAGE</button>
+            </div>
+
         </div>
     </section>
 
@@ -499,25 +677,20 @@
         <div class="container mx-auto">
             <h2 class="text-4xl font-black mb-12 text-center text-white trippy-text">VISUAL HALLUCINATIONS</h2>
             
-            <!-- Video Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                
-                <!-- VID 0 -->
                 <div class="md:col-span-2 relative group rounded-2xl overflow-hidden border-2 border-neon-green shadow-toxic bg-black">
                     <div class="absolute inset-0 bg-gradient-to-tr from-neon-green/20 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity z-10"></div>
                     <div class="absolute top-4 right-4 z-20 bg-neon-green text-black text-xs font-black px-3 py-1 rounded uppercase tracking-widest animate-pulse">Featured</div>
-                    <video src="vid0.mp4" controls class="w-full h-auto block" preload="metadata"></video>
+                    <div class="w-full h-64 bg-gray-800 flex items-center justify-center text-gray-500 font-mono text-sm">VIDEO PLACEHOLDER</div>
                 </div>
 
-                <!-- Other Vids -->
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50"><video src="vid1.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50"><video src="vid2.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50"><video src="vid3.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50"><video src="vid4.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50"><video src="vid5.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50"><video src="vid6.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50"><video src="vid7.mp4" controls class="w-full h-auto block" preload="metadata"></video></div>
-
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 1</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 2</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 3</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 4</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan hover:shadow-glow transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 5</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-neon-green hover:shadow-toxic transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 6</div>
+                <div class="relative group rounded-xl overflow-hidden border border-white/10 hover:border-fuchsia-500 hover:shadow-glow transition-all bg-black/50 aspect-video flex items-center justify-center text-gray-500">MEME 7</div>
             </div>
         </div>
     </section>
@@ -535,17 +708,19 @@
     </section>
 
     <!-- FOOTER -->
-    <!-- Changed bg-black to bg-club-bg to blend with body -->
     <footer class="py-2 bg-club-bg text-center border-t border-white/10 relative">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col items-center justify-center gap-2">
                  <span class="font-brand text-2xl tracking-widest text-white animate-pulse">Flying <span class="text-neon-cyan">Ketamine Horse</span></span>
                  
-                 <!-- Social Links -->
-                 <div class="flex gap-8 mt-2">
+                 <div class="flex gap-8 mt-2 items-center">
                     <a href="https://x.com/flyingkethorse" target="_blank" class="text-gray-400 hover:text-white hover:shadow-glow transition-all font-bold tracking-widest uppercase text-lg transform hover:scale-110">
                         X
+                    </a>
+                    <!-- TIKTOK FOOTER LINK (UPDATED) -->
+                    <a href="https://www.tiktok.com/@flyingketaminehorse" target="_blank" class="text-gray-400 hover:text-[#ff0050] hover:shadow-glow transition-all font-bold tracking-widest uppercase text-lg transform hover:scale-110">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.03 5.84-.02 8.75-.08 1.46-.54 2.94-1.34 4.2-1.23 1.94-3.41 3.08-5.69 3.01-1.55-.02-3.09-.56-4.38-1.52-1.58-1.17-2.52-3.03-2.52-4.98 0-1.78.8-3.5 2.18-4.72 1.22-1.07 2.87-1.66 4.51-1.54V15.2c-.87-.06-1.76.22-2.45.79-.58.48-.94 1.19-.94 1.96 0 1 .6 1.9 1.54 2.22.92.31 2.01.12 2.77-.6.6-.57.94-1.38.94-2.22.01-4.61.01-9.22 0-13.83-.87-.02-1.74-.02-2.62-.02-.85.02-1.7.02-2.55.02z"/></svg>
                     </a>
                     <a href="https://dexscreener.com/solana/BCXpjsHYmgVpRKdv4EQv1RARhYagnnwPkJjYbvM6bonk" target="_blank" class="text-gray-400 hover:text-neon-green hover:shadow-toxic transition-all font-bold tracking-widest uppercase text-lg transform hover:scale-110">
                         DexScreener
@@ -581,13 +756,12 @@
             const interval = setInterval(() => {
                 if (width >= 100) {
                     clearInterval(interval);
-                    // Fade out loader
                     setTimeout(() => {
                         loader.style.opacity = '0';
                         setTimeout(() => { loader.style.display = 'none'; }, 1000);
                     }, 500);
                 } else {
-                    width += Math.random() * 5; // Random increment
+                    width += Math.random() * 5;
                     if(width > 100) width = 100;
                     bar.style.width = width + '%';
                     percent.innerText = Math.floor(width) + '%';
@@ -613,14 +787,14 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
-        // --- BACKGROUND ANIMATION (MORE TRIPPY) ---
+        // --- BACKGROUND ANIMATION ---
         const canvas = document.getElementById("bg-canvas");
         const ctx = canvas.getContext("2d");
         let width, height, particles = [];
         
         const horseImg = new Image();
         horseImg.crossOrigin = "Anonymous";
-        horseImg.src = "https://pbs.twimg.com/media/G6osaKSXwAAWoIT?format=jpg&name=small";
+        horseImg.src = "https://pbs.twimg.com/media/G6osEEwXMAAagE4?format=jpg&name=small";
 
         const neonColors = ['#ff00ff', '#00ffff', '#39ff14', '#ffff00'];
 
@@ -629,24 +803,18 @@
             init() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 80 + 30; // Bigger
-                this.speedX = (Math.random() - 0.5) * 3; // Faster
+                this.size = Math.random() * 80 + 30;
+                this.speedX = (Math.random() - 0.5) * 3;
                 this.speedY = (Math.random() - 0.5) * 3;
                 this.rotation = Math.random() * 360;
                 this.rotationSpeed = (Math.random() - 0.5) * 0.05;
                 this.color = neonColors[Math.floor(Math.random() * neonColors.length)];
-                this.colorIndex = 0;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.rotation += this.rotationSpeed;
-                
-                // Color cycling
-                if(Math.random() > 0.95) {
-                    this.color = neonColors[Math.floor(Math.random() * neonColors.length)];
-                }
-
+                if(Math.random() > 0.95) this.color = neonColors[Math.floor(Math.random() * neonColors.length)];
                 if (this.x > width + 50) this.x = -50;
                 if (this.x < -50) this.x = width + 50;
                 if (this.y > height + 50) this.y = -50;
@@ -657,22 +825,16 @@
                 ctx.save();
                 ctx.translate(this.x, this.y);
                 ctx.rotate(this.rotation);
-                
-                // Color overlay effect
                 ctx.shadowBlur = 30;
                 ctx.shadowColor = this.color;
-                
                 ctx.beginPath();
                 ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
                 ctx.clip();
                 ctx.drawImage(horseImg, -this.size / 2, -this.size / 2, this.size, this.size);
-                
-                // Stronger tint
                 ctx.globalCompositeOperation = "color";
                 ctx.fillStyle = this.color;
                 ctx.globalAlpha = 0.6;
                 ctx.fill();
-                
                 ctx.restore();
             }
         }
@@ -680,7 +842,7 @@
         function initBackground() {
             resize();
             particles = [];
-            for(let i = 0; i < 20; i++) particles.push(new Hallucination()); // More particles
+            for(let i = 0; i < 20; i++) particles.push(new Hallucination());
             animate();
         }
 
@@ -699,7 +861,7 @@
 
         window.addEventListener('resize', () => { resize(); initBackground(); });
         
-        // --- GAME LOGIC (Unchanged) ---
+        // --- GAME LOGIC ---
         const gameCanvas = document.getElementById('flappyCanvas');
         const gameCtx = gameCanvas.getContext('2d');
         const overlay = document.getElementById('gameOverlay');
@@ -804,6 +966,28 @@
             gameRunning = false; if(score > highScore) { highScore = score; localStorage.setItem('fkh_highscore', highScore); }
             overlay.style.display = 'flex';
             overlay.innerHTML = `<h3 class="text-3xl font-black text-neon-green mb-2 animate-pulse">BAD TRIP! 💀</h3><p class="text-white mb-6">Score: ${score}</p><button onclick="startGame()" class="btn-pill shadow-glow-strong text-black font-black">TRY AGAIN</button>`;
+        }
+
+        // --- 3D BOOK LOGIC ---
+        let currentComicPage = 1;
+        const totalComicPages = 9;
+
+        function nextPage() {
+            if (currentComicPage < totalComicPages) {
+                // Flip the current page (which is on top)
+                const page = document.getElementById('p' + currentComicPage);
+                page.classList.add('flipped');
+                currentComicPage++;
+            }
+        }
+
+        function prevPage() {
+            if (currentComicPage > 1) {
+                // Unflip the previous page
+                currentComicPage--;
+                const page = document.getElementById('p' + currentComicPage);
+                page.classList.remove('flipped');
+            }
         }
     </script>
 </body>
